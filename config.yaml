@@ -1,0 +1,30 @@
+mockedVersion: "0.1.0"
+webServer:
+  interface: "0.0.0.0"
+  port: 8080
+  appPath: /
+  staticPath: /static/
+paths:
+  longTemplate: templates/long.html
+  shortTemplate: templates/short.gtpl
+  staticDir: static
+versions:
+- version: 0.1.0
+  vars:
+    "emoji": "🍕🍋❌"
+    "message": "[Initial] Added first elements"
+- version: 0.1.1
+  vars:
+    "emoji": "🍕🍋✅"
+    "message": "Fixed first issue"
+- version: 1.2.0
+  vars:
+    "emoji": "🍔🍏✅"
+    "message": "Added hamburger"
+versionModifiers:
+- regex: 0.*.*
+  vars:
+    "bg-color": red
+- regex: 1.*.*
+  vars:
+    "bg-color": blue

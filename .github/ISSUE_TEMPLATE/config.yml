@@ -1,0 +1,11 @@
+blank_issues_enabled: false
+contact_links:
+- name: Feature Request
+  url: https://github.com/evryn/Version Forge/discussions/categories/ideas
+  about: "Let's discuss about features and your ideas"
+- name: Support Questions
+  url: https://github.com/evryn/Version Forge/discussions/categories/q-a
+  about: "Have a question? Let us help you"
+- name: Other
+  url: https://github.com/evryn/Version Forge/discussions/categories/general
+  about: "Let's talk about what does matter to you"

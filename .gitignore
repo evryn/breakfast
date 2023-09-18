@@ -1,0 +1,8 @@
+.data
+.vs
+.vscode
+.ide
+.idea
+coverage.out
+**/__debug_bin
+dist
