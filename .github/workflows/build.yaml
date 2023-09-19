@@ -41,7 +41,9 @@ jobs:
 
   build:
     name: Build Version
-    needs: prepare-versions
+    needs:
+    - test-versions
+    - prepare-versions
     runs-on: ubuntu-20.04
     strategy:
       max-parallel: 2
