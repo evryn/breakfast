@@ -6,40 +6,47 @@ on:
       - main
 
 jobs:
-  build:
+  test-versions:
+    name: Build & Test Versions
     runs-on: ubuntu-20.04
+    steps:
+    - name: Checkout code
+      uses: actions/checkout@c85c95e3d7251135ab7dc9ce3241c5835cc595a9 # v3.5.3
+    - name: Setup Golang
+      uses: actions/setup-go@fac708d6674e30b6ba41289acaab6d4b75aa0753 # v4.0.0
+      with:
+        go-version: 1.20
+    - name: Download all Go modules
+      run: go mod download && go mod tidy
+    - name: Compile all packages and test versions
+      run: go run main.go test
 
-    # Use this action to check out the code so we can read the config.yaml
+  prepare-versions:
+    name: Prepare Versions
+    runs-on: ubuntu-20.04
     steps:
     - name: Check out code
       uses: actions/checkout@v2
-
     - name: Install yq
       run: |
         sudo wget https://github.com/mikefarah/yq/releases/download/v4.2.0/yq_linux_amd64 -O /usr/bin/yq
         sudo chmod +x /usr/bin/yq
-
-    # Read the config.yaml file and set the versions as an output
     - name: Get versions from config.yaml
       id: get_versions
-      run: |
-        echo "versions=[$(yq -j eval '.versions[].version' config.yaml | tr '\n' ', ' | sed 's/,$/\n/')]" >> $GITHUB_OUTPUT
-
-    # Print matrix for debugging purposes (Optional)
+      run: echo "versions=[$(yq -j eval '.versions[].version' config.yaml | tr '\n' ', ' | sed 's/,$/\n/')]" >> $GITHUB_OUTPUT
     - name: Print matrix
-      run: |
-        echo "${{ steps.get_versions.outputs.versions }}"
+      run: echo "${{ steps.get_versions.outputs.versions }}"
     outputs:
-      # Will look like '["6.0.0rc1", "5.3.2"]'
       versions: ${{ steps.get_versions.outputs.versions }}
-      
-  # Use the dynamic matrix
-  matrix-from-config:
-    needs: build
+
+  build:
+    name: Build Version
+    needs: prepare-versions
     runs-on: ubuntu-20.04
     strategy:
+      max-parallel: 2
       matrix:
-        version: ${{ fromJson(needs.build.outputs.versions) }}
+        version: ${{ fromJson(needs.prepare-versions.outputs.versions) }}
     steps:
     - name: Run job for matrix element
       run: |
