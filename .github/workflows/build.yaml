@@ -23,7 +23,7 @@ jobs:
     - name: Get versions from config.yaml
       id: get_versions
       run: |
-        echo "versions=($(yq e '.versions[].version' config.yaml))" >> $GITHUB_OUTPUT
+        echo "versions=$(yq eval '.versions[].version' config.yaml | tr '\n' ' ')" >> $GITHUB_OUTPUT
 
     # Print matrix for debugging purposes (Optional)
     - name: Print matrix
