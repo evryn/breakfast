@@ -57,7 +57,7 @@ jobs:
         sudo wget https://github.com/mikefarah/yq/releases/download/v4.2.0/yq_linux_amd64 -O /usr/bin/yq
         sudo chmod +x /usr/bin/yq
     - name: Edit mocked version
-      run: yq eval -i ".mockedVersion = \"${{ matrix.version.version }}\"" "config.yaml"
+      run: yq eval -i ".mockedVersion = \"${{ matrix.version }}\"" "config.yaml"
     - name: Docker metadata
       id: meta
       uses: docker/metadata-action@v4
@@ -69,7 +69,7 @@ jobs:
         flavor: |
           latest=false
         tags: |
-          type=semver,pattern={{version}},value=${{ matrix.version.version }}
+          type=semver,pattern={{version}},value=${{ matrix.version }}
           type=raw,value={{sha}}
         labels: |
           org.opencontainers.image.vendor=Evryn
