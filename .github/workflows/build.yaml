@@ -23,18 +23,20 @@ jobs:
     - name: Get versions from config.yaml
       id: get_versions
       run: |
-        echo "versions=$(yq eval '.versions[].version' config.yaml | tr '\n' ' ')" >> $GITHUB_OUTPUT
+        echo "versions=$(yq -j -I=0 eval '.versions' config.yaml)" >> $GITHUB_OUTPUT
 
     # Print matrix for debugging purposes (Optional)
     - name: Print matrix
       run: echo "${{ steps.get_versions.outputs.versions }}"
-
+    outputs:
+      # Will look like '["6.0.0rc1", "5.3.2"]'
+      versions: ${{ toJSON(steps.get_versions.outputs.versions) }}
   # Use the dynamic matrix
   matrix-from-config:
     needs: build
     runs-on: ubuntu-20.04
     strategy:
-      matrix: ${{needs.build.outputs.versions}}
+      matrix: ${{ fromJson(needs.build.outputs.versions) }}
     steps:
     - name: Run job for matrix element
       run: |
