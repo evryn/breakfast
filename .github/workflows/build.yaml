@@ -31,7 +31,8 @@ jobs:
         echo "${{ steps.get_versions.outputs.versions }}"
     outputs:
       # Will look like '["6.0.0rc1", "5.3.2"]'
-      versions: ${{ toJSON(steps.get_versions.outputs.versions) }}
+      versions: ${{ steps.get_versions.outputs.versions }}
+      
   # Use the dynamic matrix
   matrix-from-config:
     needs: build
