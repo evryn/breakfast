@@ -46,7 +46,7 @@ jobs:
     - prepare-versions
     runs-on: ubuntu-20.04
     strategy:
-      max-parallel: 2
+      max-parallel: 1
       matrix:
         version: ${{ fromJson(needs.prepare-versions.outputs.versions) }}
     steps:
@@ -70,7 +70,8 @@ jobs:
           latest=false
         tags: |
           type=semver,pattern={{version}},value=${{ matrix.version }}
-          type=raw,value={{sha}}
+          type=semver,pattern={{major}}.{{minor}},value=${{ matrix.version }}
+          type=semver,pattern={{major}},value=${{ matrix.version }}
         labels: |
           org.opencontainers.image.vendor=Evryn
           org.opencontainers.image.authors=Amirreza Nasiri <nasiri.amirreza.96@gmail.com> and contributors
