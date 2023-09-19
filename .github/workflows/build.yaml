@@ -1,0 +1,42 @@
+name: Dynamic Matrix from config.yaml
+
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  build:
+    runs-on: ubuntu-20.04
+
+    # Use this action to check out the code so we can read the config.yaml
+    steps:
+    - name: Check out code
+      uses: actions/checkout@v2
+
+    - name: Install yq
+      run: |
+        wget https://github.com/mikefarah/yq/releases/download/v4.2.0/yq_linux_amd64 -O /usr/bin/yq
+        chmod +x /usr/bin/yq
+
+    # Read the config.yaml file and set the versions as an output
+    - name: Get versions from config.yaml
+      id: get_versions
+      run: |
+        echo "versions=$(yq e '.versions[].version' config.yaml)" >> $GITHUB_OUTPUT
+
+    # Print matrix for debugging purposes (Optional)
+    - name: Print matrix
+      run: echo "${{ steps.get_versions.outputs.versions }}"
+
+  # Use the dynamic matrix
+  matrix-from-config:
+    needs: build
+    runs-on: ubuntu-20.04
+    strategy:
+      matrix: ${{fromJson(needs.build.outputs.versions)}}
+    steps:
+    - name: Run job for matrix element
+      run: |
+        echo "Running for version: ${{ matrix }}"
+
