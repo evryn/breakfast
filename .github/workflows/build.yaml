@@ -36,9 +36,10 @@ jobs:
     needs: build
     runs-on: ubuntu-20.04
     strategy:
-      matrix: ${{ fromJson(needs.build.outputs.versions) }}
+      matrix:
+        version: ${{ fromJson(needs.build.outputs.versions) }}
     steps:
     - name: Run job for matrix element
       run: |
-        echo "Running for version: ${{ matrix }}"
+        echo "Running for version: ${{ matrix.version.version }}"
 
