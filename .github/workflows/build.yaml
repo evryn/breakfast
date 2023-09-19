@@ -50,7 +50,47 @@ jobs:
       matrix:
         version: ${{ fromJson(needs.prepare-versions.outputs.versions) }}
     steps:
-    - name: Run job for matrix element
-      run: |
-        echo "Running for version: ${{ matrix.version.version }}"
-
+    - name: Docker metadata
+      id: meta
+      uses: docker/metadata-action@v4
+      with:
+        images: |
+          evryn/version-forge
+          ghcr.io/evryn/version-forge
+          quay.io/evryn/version-forge
+        flavor: |
+          latest=false
+        tags: |
+          type=semver,pattern={{version}},value=${{ matrix.version.version }}
+          type=raw,value={{sha}}
+        labels: |
+          org.opencontainers.image.vendor=Evryn
+          org.opencontainers.image.authors=Amirreza Nasiri <nasiri.amirreza.96@gmail.com> and contributors
+          maintainer=Amirreza Nasiri <nasiri.amirreza.96@gmail.com>
+          org.label-schema.schema-version=1.0
+          org.label-schema.vcs-url=https://github.com/${{ github.repository }}.git
+          org.label-schema.docker.cmd=docker run -d -p 8080:8080 version-forge
+    - name: Login to DockerHub
+      uses: docker/login-action@v2
+      with:
+        username: ${{ secrets.DOCKERHUB_USERNAME }}
+        password: ${{ secrets.DOCKERHUB_TOKEN }}
+    - name: Login to GitHub Container Registry
+      uses: docker/login-action@v2
+      with:
+        registry: ghcr.io
+        username: ${{ github.repository_owner }}
+        password: ${{ secrets.GITHUB_TOKEN }}
+    - name: Login to Quay.io
+      uses: docker/login-action@v2
+      with:
+        registry: quay.io
+        username: ${{ secrets.QUAY_USERNAME }}
+        password: ${{ secrets.QUAY_PASSWORD }}
+    - name: Build and push
+      uses: docker/build-push-action@v4
+      with:
+        context: .
+        push: true
+        tags: ${{ steps.meta.outputs.tags }}
+        labels: ${{ steps.meta.outputs.labels }}
