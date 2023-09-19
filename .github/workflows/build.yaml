@@ -87,6 +87,12 @@ jobs:
         registry: quay.io
         username: ${{ secrets.QUAY_USERNAME }}
         password: ${{ secrets.QUAY_PASSWORD }}
+    - name: Install yq
+      run: |
+        sudo wget https://github.com/mikefarah/yq/releases/download/v4.2.0/yq_linux_amd64 -O /usr/bin/yq
+        sudo chmod +x /usr/bin/yq
+    - name: Edit mocked version
+      run: yq eval -i ".mockedVersion = \"${{ matrix.version.version }}\"" "config.yaml"
     - name: Build and push
       uses: docker/build-push-action@v4
       with:
