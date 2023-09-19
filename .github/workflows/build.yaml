@@ -34,7 +34,7 @@ jobs:
     needs: build
     runs-on: ubuntu-20.04
     strategy:
-      matrix: ${{fromJson(needs.build.outputs.versions)}}
+      matrix: ${{needs.build.outputs.versions}}
     steps:
     - name: Run job for matrix element
       run: |
