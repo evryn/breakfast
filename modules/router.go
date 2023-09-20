@@ -2,6 +2,7 @@ package modules
 
 import (
 	"fmt"
+	"log"
 	"net/http"
 	"text/template"
 	"breakfast/config"
