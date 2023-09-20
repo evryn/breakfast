@@ -23,9 +23,11 @@ FROM alpine:3.18
 RUN apk --no-cache add ca-certificates \
  && adduser -S -u 1000 -s /bin/bash -h /home/version-forge version-forge
 
-COPY --from=builder /go/bin/app /usr/local/bin/version-forge
-
 WORKDIR /home/version-forge/
+
+COPY . /home/version-forge/
+COPY --from=builder /go/bin/app /home/version-forge/version-forge
+
 USER version-forge
 EXPOSE 8080
-ENTRYPOINT ["version-forge"]
+ENTRYPOINT ["/home/version-forge/version-forge"]
