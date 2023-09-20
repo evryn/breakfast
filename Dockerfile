@@ -3,10 +3,6 @@
 # Build Stage
 FROM golang:1.20-alpine3.18 as builder
 
-ARG BUILD_VERSION
-ARG BUILD_DATE
-ARG BUILD_REF
-
 WORKDIR /go/src/app
 COPY . .
 RUN go get -d -v ./... \
@@ -21,13 +17,13 @@ RUN go test ./...
 FROM alpine:3.18
 
 RUN apk --no-cache add ca-certificates \
- && adduser -S -u 1000 -s /bin/bash -h /home/version-forge version-forge
+ && adduser -S -u 1000 -s /bin/bash -h /home/breakfast breakfast
 
-WORKDIR /home/version-forge/
+WORKDIR /home/breakfast/
 
-COPY . /home/version-forge/
-COPY --from=builder /go/bin/app /home/version-forge/version-forge
+COPY . /home/breakfast/
+COPY --from=builder /go/bin/app /home/breakfast/breakfast
 
-USER version-forge
+USER breakfast
 EXPOSE 8080
-ENTRYPOINT ["/home/version-forge/version-forge"]
+ENTRYPOINT ["/home/breakfast/breakfast"]

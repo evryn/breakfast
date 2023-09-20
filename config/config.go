@@ -3,7 +3,7 @@ package config
 import (
 	"log"
 	"os"
-	"version-forge/types"
+	"breakfast/types"
 
 	"gopkg.in/yaml.v2"
 )

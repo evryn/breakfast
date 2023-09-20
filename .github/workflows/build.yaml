@@ -63,9 +63,9 @@ jobs:
       uses: docker/metadata-action@v4
       with:
         images: |
-          evryn/version-forge
-          ghcr.io/evryn/version-forge
-          quay.io/evryn/version-forge
+          evryn/breakfast
+          ghcr.io/evryn/breakfast
+          quay.io/evryn/breakfast
         flavor: |
           latest=false
         tags: |
@@ -78,7 +78,7 @@ jobs:
           maintainer=Amirreza Nasiri <nasiri.amirreza.96@gmail.com>
           org.label-schema.schema-version=1.0
           org.label-schema.vcs-url=https://github.com/${{ github.repository }}.git
-          org.label-schema.docker.cmd=docker run -d -p 8080:8080 version-forge
+          org.label-schema.docker.cmd=docker run -d -p 8080:8080 evryn/breakfast
     - name: Login to DockerHub
       uses: docker/login-action@v2
       with:

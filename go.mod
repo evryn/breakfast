@@ -1,4 +1,4 @@
-module version-forge
+module breakfast
 
 go 1.20
 

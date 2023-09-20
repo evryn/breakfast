@@ -6,8 +6,8 @@ import (
 	"regexp"
 	"sort"
 	"text/template"
-	"version-forge/config"
-	"version-forge/types"
+	"breakfast/config"
+	"breakfast/types"
 )
 
 type TemplateData struct {

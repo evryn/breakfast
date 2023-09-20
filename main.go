@@ -5,11 +5,13 @@ import (
 	"io"
 	"log"
 	"os"
-	"version-forge/config"
-	"version-forge/modules"
+	"breakfast/config"
+	"breakfast/modules"
 )
 
 func main() {
+	log.Println("preparing breakfast ...")
+
 	config.MustLoadConfig()
 
 	if len(os.Args) == 1 {
