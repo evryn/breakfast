@@ -1,20 +1,42 @@
-<!DOCTYPE html>
 <html lang="en">
   <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>v{{ .Version }} ({{ index .Vars "emoji" }})</title>
-    <link rel="stylesheet" href="style.css">
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Brekfast</title>
+    <!-- style -->
+    <link rel="stylesheet" href="style.css" />
   </head>
-  <body style="background-color: {{ index .Vars "bg-color" }};">
-    <div>
-      {{ index .Vars "message" }}
+
+  <body>
+    <div class="card">
+      <div class="main">
+        <div class="title-wrapper">
+          <h1 class="sweet-title">
+            <span data-text="Sweet">v1.0.1</span>
+          </h1>
+        </div>
+        <h3>Hostname: desktop-1</h3>
+        <img
+          class="tokenImage"
+          src="images/svg/Untitled-1-09.svg"
+          alt="devops"
+        />
+
+        <div class="tabs">
+          <div class="tab">
+            <input type="checkbox" id="chck1" />
+            <label class="tab-label" for="chck1"
+              >[BREAKING] A table is added to the breakfast
+            </label>
+            <div class="tab-content">
+              Lorem ipsum dolor sit amet consectetur, adipisicing elit. Ipsum,
+              reiciendis!
+            </div>
+          </div>
+        </div>
+        <hr />
+        <span class="footer">Breakfast Project</span>
+      </div>
     </div>
-    <ul>
-      {{ range .PreviousVersions }}
-      <li>{{  index .Vars "message" }}</li>
-      {{ end }}
-    </ul>
   </body>
 </html>
