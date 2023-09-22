@@ -8,19 +8,6 @@ paths:
   longTemplate: templates/long.html
   shortTemplate: templates/short.gtpl
   staticDir: static
-versions:
-- version: 0.1.0
-  vars:
-    "emoji": "🍕🍋❌"
-    "message": "[Initial] Added first elements"
-- version: 0.1.1
-  vars:
-    "emoji": "🍕🍋✅"
-    "message": "Fixed first issue"
-- version: 1.2.0
-  vars:
-    "emoji": "🍔🍏✅"
-    "message": "Added hamburger"
 versionModifiers:
 - regex: 0.*.*
   vars:
@@ -28,3 +15,79 @@ versionModifiers:
 - regex: 1.*.*
   vars:
     "bg-color": blue
+- regex: 2.*.*
+  vars:
+    "bg-color": green
+versions:
+- version: 0.1.0
+  vars:
+    emoji: "🧘‍♂️⬜🦠",
+    message: "[Initial commit] - Add a cloth"
+- version: 0.1.1
+  vars:
+    emoji: "🧘‍♂️⬜✨",
+    message: "[Fix] Cleanup the cloth"
+- version: 0.2.0
+  vars:
+    emoji: "🧘‍♂️🍞🦠",
+    message: "[Feature] Add Sangak bread"
+- version: 0.2.1
+  vars:
+    emoji: "🧘‍♂️🍞✨",
+    message: "[Fix] Use perfectly baked Sangak bread"
+- version: 0.3.0
+  vars:
+    emoji: "🧘‍♂️🥖🦠",
+    message: "[Feature] Add Barbari bread"
+- version: 0.3.1
+  vars:
+    emoji: "🧘‍♂️🥖✨",
+    message: "[Fix] Use unbiten Barbari bread"
+- version: 1.0.0
+  vars:
+    emoji: "🧍🪵🦠",
+    message: "[Major] Add a table for breakfast"
+- version: 1.0.1
+  vars:
+    emoji: "🧍🪵✨",
+    message: "[Fix] Fix the table legs"
+- version: 1.1.0
+  vars:
+    emoji: "🧍🧀🦠",
+    message: "[Feature] Add a few pieces of cheese"
+- version: 1.1.1
+  vars:
+    emoji: "🧍🧀✨",
+    message: "[Fix] Serve the cheese properly"
+- version: 1.2.0
+  vars:
+    emoji: "🧍🫖🦠",
+    message: "[Feature] Add a Shirin Chay"
+- version: 1.2.1
+  vars:
+    emoji: "🧍🫖✨",
+    message: "[Fix] Serve the tea properly"
+- version: 2.0.0
+  vars:
+    emoji: "🪑🪑🦠",
+    message: "[Major] Add chairs to the breakfast table"
+- version: 2.0.1
+  vars:
+    emoji: "🪑🪑✨",
+    message: "[Fix] Fix the broken chairs"
+- version: 2.1.0
+  vars:
+    emoji: "🪑🥜🦠",
+    message: "[Feature] Add a few walnuts"
+- version: 2.1.1
+  vars:
+    emoji: "🪑🥜✨",
+    message: "[Fix] Serve the walnuts without shell"
+- version: 2.2.0
+  vars:
+    emoji: "🪑🍲🦠",
+    message: "[Feature] Add a bowl of Halim"
+- version: 2.2.2
+  vars:
+    emoji: "🪑🍲✨",
+    message: "[Fix] Serve the Halim better"
