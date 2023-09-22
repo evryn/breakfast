@@ -11,13 +11,19 @@ paths:
 versionModifiers:
 - regex: 0.*.*
   vars:
-    "bg-color": red
+    bgColor1: "#b7884b"
+    bgColor2: "#483518"
+    textColor: "#413c32"
 - regex: 1.*.*
   vars:
-    "bg-color": blue
+    bgColor1: "#4b6cb7"
+    bgColor2: "#182848"
+    textColor: "#323641"
 - regex: 2.*.*
   vars:
-    "bg-color": green
+    bgColor1: "#4bb793"
+    bgColor2: "#184830"
+    textColor: "#32413c"
 versions:
 - version: 0.1.0
   vars:

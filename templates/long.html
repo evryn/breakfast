@@ -1,20 +1,54 @@
-<!DOCTYPE html>
 <html lang="en">
   <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>v{{ .Version }} ({{ index .Vars "emoji" }})</title>
-    <link rel="stylesheet" href="style.css">
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Breakfast v{{ .Version }} ({{ index .Vars "emoji" }})</title>
+    <link rel="stylesheet" href="static/style.css" />
+    <style>
+      :root {
+        --color1: {{ index .Vars "bgColor1" }};
+        --color2: {{ index .Vars "bgColor2" }};
+        --color-txt: {{ index .Vars "textColor" }};
+      }
+    </style>
   </head>
-  <body style="background-color: {{ index .Vars "bg-color" }};">
-    <div>
-      {{ index .Vars "message" }}
+
+  <body>
+    <div class="card">
+      <div class="main">
+        <div class="title-wrapper">
+          <h1 class="sweet-title">
+            <span data-text="Sweet">v{{ .Version }}</span>
+          </h1>
+        </div>
+        <h3>Hostname: desktop-1</h3>
+        <img
+          class="tokenImage"
+          src="static/images/{{ .Version }}.svg"
+          alt="devops"
+        />
+        <div class="tabs">
+          <div class="tab">
+            <input type="checkbox" id="chck1" />
+            <label class="tab-label" for="chck1">
+              {{ index .Vars "message" }}
+            </label>
+            <div class="tab-content">
+              <ul>
+                {{ range .PreviousVersions }}
+                <li>{{  index .Vars "message" }}</li>
+                {{ end }}
+              </ul>
+            </div>
+          </div>
+        </div>
+        <hr />
+        <span class="footer">
+          <a href="https://github.com/evryn/breakfast">
+            Breakfast Project
+          </a>
+        </span>
+      </div>
     </div>
-    <ul>
-      {{ range .PreviousVersions }}
-      <li>{{  index .Vars "message" }}</li>
-      {{ end }}
-    </ul>
   </body>
 </html>
