@@ -1,9 +1,9 @@
 package config
 
 import (
+	"breakfast/types"
 	"log"
 	"os"
-	"breakfast/types"
 
 	"gopkg.in/yaml.v2"
 )
@@ -21,7 +21,6 @@ type Config struct {
 	} `yaml:"webServer"`
 
 	Paths struct {
-		StaticDir     string `yaml:"staticDir"`
 		LongTemplate  string `yaml:"longTemplate"`
 		ShortTemplate string `yaml:"shortTemplate"`
 	} `yaml:"paths"`

@@ -1,99 +1,98 @@
-mockedVersion: "0.1.0"
+mockedVersion: 0.1.1
 webServer:
-  interface: "0.0.0.0"
+  interface: 0.0.0.0
   port: 8080
   appPath: /
-  staticPath: /static/
+  staticPath: /static
 paths:
   longTemplate: templates/long.html
   shortTemplate: templates/short.gtpl
-  staticDir: static
-versionModifiers:
-- regex: 0.*.*
+versions:
+- version: 0.1.0
   vars:
-    bgColor1: "#b7884b"
-    bgColor2: "#483518"
-    textColor: "#413c32"
-- regex: 1.*.*
+    emoji: "🧘‍♂️⬜🦠"
+    message: "[Initial commit] Add a meal serving cloth (Sofreh)"
+- version: 0.1.1
+  vars:
+    emoji: "🧘‍♂️⬜✨"
+    message: "[Fix] Cleanup the cloth"
+- version: 0.2.0
+  vars:
+    emoji: "🧘‍♂️🍞🦠"
+    message: "[Feature] Add Sangak bread"
+- version: 0.2.1
+  vars:
+    emoji: "🧘‍♂️🍞✨"
+    message: "[Fix] Use perfectly baked Sangak bread"
+- version: 0.3.0
+  vars:
+    emoji: "🧘‍♂️🥖🦠"
+    message: "[Feature] Add Barbari bread"
+- version: 0.3.1
+  vars:
+    emoji: "🧘‍♂️🥖✨"
+    message: "[Fix] Use unbiten Barbari bread"
+- version: 1.0.0
+  vars:
+    emoji: "🧍🪵🦠"
+    message: "[Major] Add a table for breakfast"
+- version: 1.0.1
+  vars:
+    emoji: "🧍🪵✨"
+    message: "[Fix] Fix the table legs"
+- version: 1.1.0
+  vars:
+    emoji: "🧍🧀🦠"
+    message: "[Feature] Add a few pieces of cheese"
+- version: 1.1.1
+  vars:
+    emoji: "🧍🧀✨"
+    message: "[Fix] Serve the cheese properly"
+- version: 1.2.0
+  vars:
+    emoji: "🧍🫖🦠"
+    message: "[Feature] Add a Shirin Chay"
+- version: 1.2.1
+  vars:
+    emoji: "🧍🫖✨"
+    message: "[Fix] Serve the tea properly"
+- version: 2.0.0
+  vars:
+    emoji: "🪑🪑🦠"
+    message: "[Major] Add chairs to the breakfast table"
+- version: 2.0.1
+  vars:
+    emoji: "🪑🪑✨"
+    message: "[Fix] Fix the broken chairs"
+- version: 2.1.0
+  vars:
+    emoji: "🪑🥜🦠"
+    message: "[Feature] Add a few walnuts"
+- version: 2.1.1
+  vars:
+    emoji: "🪑🥜✨"
+    message: "[Fix] Serve the walnuts without shell"
+- version: 2.2.0
+  vars:
+    emoji: "🪑🍲🦠"
+    message: "[Feature] Add a bowl of Halim"
+- version: 2.2.2
+  vars:
+    emoji: "🪑🍲✨"
+    message: "[Fix] Serve the Halim better"
+versionModifiers:
+- format: 0.*.*
   vars:
     bgColor1: "#4b6cb7"
     bgColor2: "#182848"
     textColor: "#323641"
-- regex: 2.*.*
+- format: 1.*.*
   vars:
-    bgColor1: "#4bb793"
-    bgColor2: "#184830"
-    textColor: "#32413c"
-versions:
-- version: 0.1.0
+    bgColor1: "#FE28A2"
+    bgColor2: "#570b36"
+    textColor: "#3d3037"
+- format: 2.*.*
   vars:
-    emoji: "🧘‍♂️⬜🦠",
-    message: "[Initial commit] - Add a cloth"
-- version: 0.1.1
-  vars:
-    emoji: "🧘‍♂️⬜✨",
-    message: "[Fix] Cleanup the cloth"
-- version: 0.2.0
-  vars:
-    emoji: "🧘‍♂️🍞🦠",
-    message: "[Feature] Add Sangak bread"
-- version: 0.2.1
-  vars:
-    emoji: "🧘‍♂️🍞✨",
-    message: "[Fix] Use perfectly baked Sangak bread"
-- version: 0.3.0
-  vars:
-    emoji: "🧘‍♂️🥖🦠",
-    message: "[Feature] Add Barbari bread"
-- version: 0.3.1
-  vars:
-    emoji: "🧘‍♂️🥖✨",
-    message: "[Fix] Use unbiten Barbari bread"
-- version: 1.0.0
-  vars:
-    emoji: "🧍🪵🦠",
-    message: "[Major] Add a table for breakfast"
-- version: 1.0.1
-  vars:
-    emoji: "🧍🪵✨",
-    message: "[Fix] Fix the table legs"
-- version: 1.1.0
-  vars:
-    emoji: "🧍🧀🦠",
-    message: "[Feature] Add a few pieces of cheese"
-- version: 1.1.1
-  vars:
-    emoji: "🧍🧀✨",
-    message: "[Fix] Serve the cheese properly"
-- version: 1.2.0
-  vars:
-    emoji: "🧍🫖🦠",
-    message: "[Feature] Add a Shirin Chay"
-- version: 1.2.1
-  vars:
-    emoji: "🧍🫖✨",
-    message: "[Fix] Serve the tea properly"
-- version: 2.0.0
-  vars:
-    emoji: "🪑🪑🦠",
-    message: "[Major] Add chairs to the breakfast table"
-- version: 2.0.1
-  vars:
-    emoji: "🪑🪑✨",
-    message: "[Fix] Fix the broken chairs"
-- version: 2.1.0
-  vars:
-    emoji: "🪑🥜🦠",
-    message: "[Feature] Add a few walnuts"
-- version: 2.1.1
-  vars:
-    emoji: "🪑🥜✨",
-    message: "[Fix] Serve the walnuts without shell"
-- version: 2.2.0
-  vars:
-    emoji: "🪑🍲🦠",
-    message: "[Feature] Add a bowl of Halim"
-- version: 2.2.2
-  vars:
-    emoji: "🪑🍲✨",
-    message: "[Fix] Serve the Halim better"
+    bgColor1: "#00A693"
+    bgColor2: "#003b34"
+    textColor: "#2f4745"

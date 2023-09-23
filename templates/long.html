@@ -3,6 +3,7 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Breakfast v{{ .Version }} ({{ index .Vars "emoji" }})</title>
+    <link rel="icon" type="image/x-icon" href="static/images/{{ .Version }}.svg">
     <link rel="stylesheet" href="static/style.css" />
     <style>
       :root {
@@ -18,10 +19,13 @@
       <div class="main">
         <div class="title-wrapper">
           <h1 class="sweet-title">
-            <span data-text="Sweet">v{{ .Version }}</span>
+            <span>v{{ .Version }}</span>
           </h1>
         </div>
-        <h3>Hostname: desktop-1</h3>
+        <h3>{{ .Http.Host }}{{ .Http.Url }}</h3>
+        {{ if ne .ContainerName ""}}
+        <h3>Container Name: {{ .ContainerName }}</h3>
+        {{ end }}
         <img
           class="tokenImage"
           src="static/images/{{ .Version }}.svg"
@@ -31,23 +35,23 @@
           <div class="tab">
             <input type="checkbox" id="chck1" />
             <label class="tab-label" for="chck1">
-              {{ index .Vars "message" }}
+              {{ .Version }}: {{ index .Vars "message" }}
             </label>
             <div class="tab-content">
               <ul>
                 {{ range .PreviousVersions }}
-                <li>{{  index .Vars "message" }}</li>
+                <li>{{ .Version }}: {{  index .Vars "message" }}</li>
                 {{ end }}
               </ul>
             </div>
           </div>
         </div>
         <hr />
-        <span class="footer">
-          <a href="https://github.com/evryn/breakfast">
+        <a href="https://github.com/evryn/breakfast">
+          <span class="footer">
             Breakfast Project
-          </a>
-        </span>
+          </span>
+        </a>
       </div>
     </div>
   </body>

@@ -1,13 +1,15 @@
 package modules
 
 import (
-	"fmt"
-	"log"
-	"regexp"
-	"sort"
-	"text/template"
 	"breakfast/config"
 	"breakfast/types"
+	"fmt"
+	"log"
+	"os"
+	"regexp"
+	"sort"
+	"strings"
+	"text/template"
 )
 
 type TemplateData struct {
@@ -16,6 +18,13 @@ type TemplateData struct {
 	Vars map[string]string
 
 	PreviousVersions []types.Version
+
+	Http struct {
+		Host string
+		Url  string
+	}
+
+	ContainerName string
 }
 
 func MustGetPrepareTemplates(targetVersion string) (TemplateData, *template.Template, *template.Template) {
@@ -42,9 +51,10 @@ func MustGetPrepareTemplates(targetVersion string) (TemplateData, *template.Temp
 
 	for _, vm := range config.Main.VersionModifiers {
 		// replace the wildcard character '*' with the proper format in the regex
-		regexStr := regexp.QuoteMeta(vm.Format)
+		regexStr := vm.Format
 		regexStr = fmt.Sprintf("^%s$", regexStr)
-		regexStr = regexp.MustCompile(`\*`).ReplaceAllString(regexStr, ".*")
+		regexStr = strings.ReplaceAll(regexStr, ".", "\\.")
+		regexStr = strings.ReplaceAll(regexStr, "*", ".+")
 
 		// compile the regex pattern
 		regexPattern := regexp.MustCompile(regexStr)
@@ -61,6 +71,7 @@ func MustGetPrepareTemplates(targetVersion string) (TemplateData, *template.Temp
 		Version:          version.Version,
 		Vars:             version.Vars,
 		PreviousVersions: lowerVersions,
+		ContainerName:    os.Getenv("HOSTNAME"),
 	}
 
 	var longTemplate, shortTemplate *template.Template
