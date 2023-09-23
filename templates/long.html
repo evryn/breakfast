@@ -23,9 +23,9 @@
           </h1>
         </div>
         {{ if ne .ContainerName ""}}
-        <h3>Container Name: {{ .ContainerName }}</h3>
+        <h3>Hostname: {{ .ContainerName }}</h3>
         {{ end }}
-        <h3>Incoming Request: http://{{ .Http.Host }}{{ .Http.Url }}</h3>
+        <h3>Request: http://{{ .Http.Host }}{{ .Http.Url }}</h3>
         <img
           class="tokenImage"
           src="static/images/{{ .Version }}.svg"

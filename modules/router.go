@@ -37,11 +37,11 @@ func handler(w http.ResponseWriter, r *http.Request) {
 
 	w.WriteHeader(http.StatusOK)
 
+	log.Println(fmt.Sprintf("handling request: http://%s%s", templateData.Http.Host, templateData.Http.Url))
+
 	if r.URL.Query().Has("short") && shortTemplate != nil {
-		log.Println("handling short-response request: " + r.URL.Path)
 		shortTemplate.Execute(w, templateData)
 	} else {
-		log.Println("handling request: " + r.URL.Path)
 		longTemplate.Execute(w, templateData)
 	}
 }
