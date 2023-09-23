@@ -1,1 +1,1 @@
-v{{ .Version }} ({{  index .Vars "emoji" }})
+v{{ .Version }} ({{  index .Vars "emoji" }}) from {{ .ContainerName }}

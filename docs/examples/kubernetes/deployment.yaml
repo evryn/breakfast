@@ -5,7 +5,7 @@ metadata:
     app: breakfast
   name: breakfast
 spec:
-  replicas: 2
+  replicas: 10
   selector:
     matchLabels:
       app: breakfast
@@ -21,7 +21,7 @@ spec:
     spec:
       containers:
       - image: evryn/breakfast:0.1.0
-        imagePullPolicy: IfNotPresent
+        imagePullPolicy: Always
         name: breakfast
         ports:
         - name: http
