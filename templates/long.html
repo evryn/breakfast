@@ -22,10 +22,10 @@
             <span>v{{ .Version }}</span>
           </h1>
         </div>
-        <h3>{{ .Http.Host }}{{ .Http.Url }}</h3>
         {{ if ne .ContainerName ""}}
         <h3>Container Name: {{ .ContainerName }}</h3>
         {{ end }}
+        <h3>Incoming Request: http://{{ .Http.Host }}{{ .Http.Url }}</h3>
         <img
           class="tokenImage"
           src="static/images/{{ .Version }}.svg"
