@@ -1,4 +1,4 @@
-
+[![Test and Build Images](https://github.com/evryn/breakfast/actions/workflows/build.yaml/badge.svg)](https://github.com/evryn/breakfast/actions/workflows/build.yaml) [![Docker Hub](https://img.shields.io/badge/Total%20Versions-18-blue?logo=docker)](https://hub.docker.com/r/evryn/breakfast)
 
 <p align="center">
 <img src="docs/banner.png" alt="Watch the video" width="600"/>
@@ -9,6 +9,9 @@
 Welcome to **🍯 Breakfast**! Ever wanted to explore the intricacies of GitOps workflows, or understand the nuances of deploying applications on platforms like Kubernetes and Docker Swarm? Dive into Breakfast and discover these tech realms through a delightful representation of an evolving Persian breakfast table.
 
 Whether you're a DevOps enthusiast or someone simply intrigued by the vibrant world of deployments, the project offers a flavorful journey for all. You don't need to deploy `nginx:blah.blah.blah` anymore!
+
+
+
 
 ## Features
 
@@ -36,6 +39,30 @@ Send a request to `/?short=true` to get:
 - 😋 **Emoji Representation**: Instead of the full-fledged visual representation, this shorter CLI variant uses delightful emojis to depict the breakfast stages. Good to visually distinct the versions during an update.
 - 📦 **Container Name Display**: Just like the HTTP version, the shorter CLI response showcases the name of the container serving the request, offering an extra layer of information for the curious minds.
 
+
+## Available Images
+You can grab the images from our [Docker Hub](https://hub.docker.com/r/evryn/breakfast/tags), [Github Registry](https://github.com/evryn/breakfast/pkgs/container/breakfast), and [Quay.io](https://quay.io/repository/evryn/breakfast?tab=tags), for example: `evryn/breakfast:1.0.0`.
+
+Here are the available image tags:
+
+- `0.1.0`
+- `0.1.1` or `0.1`
+- `0.2.0`
+- `0.2.1` or `0.2`
+- `0.3.0`
+- `0.3.1` or `0.3` or `0`
+- `1.0.0`
+- `1.0.1` or `1.0`
+- `1.1.0`
+- `1.1.1` or `1.1`
+- `1.2.0`
+- `1.2.1` or `1.2` or `1`
+- `2.0.0`
+- `2.0.1` or `2.0`
+- `2.1.0`
+- `2.1.1` or `2.1`
+- `2.2.0`
+- `2.2.1` or `2.2` or `2`
 
 
 ## Usage
