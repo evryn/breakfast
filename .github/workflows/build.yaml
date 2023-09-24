@@ -53,6 +53,10 @@ jobs:
       run: |
         sudo wget https://github.com/mikefarah/yq/releases/download/v4.2.0/yq_linux_amd64 -O /usr/bin/yq
         sudo chmod +x /usr/bin/yq
+    - name: Remove redundant files
+      run: |
+        find ./static/images -type f ! -name '${{ matrix.version }}.svg' -exec rm {} \;
+        rm -rf .github .git dist docs
     - name: Edit mocked version
       run: yq eval -i ".mockedVersion = \"${{ matrix.version }}\"" "config.yaml"
     - name: Docker metadata
