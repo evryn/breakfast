@@ -1,9 +1,6 @@
 name: Dynamic Matrix from config.yaml
 
-on:
-  push:
-    branches:
-      - main
+on: workflow_dispatch
 
 jobs:
   test-versions:
