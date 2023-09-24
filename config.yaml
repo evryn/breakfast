@@ -76,7 +76,7 @@ versions:
   vars:
     emoji: "🪑🍲🦠"
     message: "[Feature] Add a bowl of Halim"
-- version: 2.2.2
+- version: 2.2.1
   vars:
     emoji: "🪑🍲✨"
     message: "[Fix] Serve the Halim better"
