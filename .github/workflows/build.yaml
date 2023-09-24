@@ -1,4 +1,4 @@
-name: Dynamic Matrix from config.yaml
+name: Test and Build Images
 
 on: workflow_dispatch
 
