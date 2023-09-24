@@ -1,5 +1,9 @@
 # 🍯 Breakfast
 
+<p align="center">
+<img src="docs/browser-version.jpg" alt="Watch the video" width="600"/>
+</p>
+
 ## Introduction
 
 Welcome to **🍯 Breakfast**! Ever wanted to explore the intricacies of GitOps workflows, or understand the nuances of deploying applications on platforms like Kubernetes and Docker Swarm? Dive into Breakfast and discover these tech realms through a delightful representation of an evolving Persian breakfast table.
@@ -12,6 +16,11 @@ At the heart of 🍯 **Breakfast**, are two primary offerings, each designed to 
 
 #### Browser-friendly Page
 Send a request to `/` to get:
+
+<p align="center">
+<img src="docs/browser-version.jpg" alt="Watch the video" width="600"/>
+</p>
+
 - 🍽️ **Visual Breakfast Progress**: Experience the evolution of a Persian breakfast table, represented through dynamic visual stages. This is not just eye-catching, but it aligns closely with the varied deployment phases you'd encounter in real-world applications - either a major update, a feature addition or a bugfix.
 - 🌐 **Ingress Host Display**: You can use different ingress options to direct the request to Breakfast. We'll show you how the final request got into the container.
 - 📦 **Container Name Display**: Want to see which container handles the request during a deployment update? We'll show you the container name.
@@ -19,8 +28,15 @@ Send a request to `/` to get:
 
 #### CLI-friendly Page:
 Send a request to `/?short=true` to get:
+
+<p align="center">
+<img src="docs/short-version.jpg" alt="Watch the video" width="600"/>
+</p>
+
 - 😋 **Emoji Representation**: Instead of the full-fledged visual representation, this shorter CLI variant uses delightful emojis to depict the breakfast stages. Good to visually distinct the versions during an update.
 - 📦 **Container Name Display**: Just like the HTTP version, the shorter CLI response showcases the name of the container serving the request, offering an extra layer of information for the curious minds.
+
+
 
 ## Usage
 
