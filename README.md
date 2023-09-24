@@ -35,7 +35,7 @@ Deploying the Breakfast application on Kubernetes is straightforward. Follow the
 
 <p align="center">
 <a href="https://www.youtube.com/watch?v=m9YgH5M5D-g" target="_blank">
- <img src="docs/video-kubernetes.jpg" alt="Watch the video" width="300"/>
+ <img src="docs/video-kubernetes.jpg" alt="Watch the video" width="600"/>
 </a>
 </p>
 
@@ -71,7 +71,7 @@ If you're using Docker Swarm, the deployment process has its own set of commands
 
 <p align="center">
 <a href="https://www.youtube.com/watch?v=t8cyUOx7O5k" target="_blank">
- <img src="docs/video-docker-swarm.jpg" alt="Watch the video" width="300"/>
+ <img src="docs/video-docker-swarm.jpg" alt="Watch the video" width="600"/>
 </a>
 </p>
 
@@ -93,4 +93,28 @@ To make modifications to the currently deployed service, you can update the imag
 ```bash
 docker service update breakfast --image evryn/breakfast:1.0.0
 ```
+
+## Customization
+
+If you wish to tailor the Breakfast project according to your needs or simply want to play around with its content, the process is straightforward. Here's a step-by-step guide:
+
+1. **Fork the Project**:
+   Begin by forking the repository. This gives you your own copy to work with.
+
+2. **Modify the Templates**:
+   Navigate to the `templates` directory. The files in this directory use Go Template syntax. You can modify the content as per your requirements.
+
+3. **Add Static Content**:
+   If you have assets like images, CSS, or JavaScript that need to be served statically, place them in the `static` directory.
+
+4. **Update Configuration**:
+   Make changes to the `config.yaml` as needed.
+
+   _Important: Ensure that you list versions in ascending order for proper registry tagging._
+
+5. **Deployment Workflow**:
+   A workflow is provided to build and upload the versioned images to [Docker Hub](https://hub.docker.com/), [Github Registry](https://ghcr.io), and [Quay.io](https://quay.io).
+   For authentication and to ensure the correct credentials are used, check the `.github/workflows/build.yaml`. This workflow is triggered manually from your repository's Actions tab.
+
+By following the steps above, everything should work seamlessly out-of-the-box. Enjoy customizing and deploying your own versions of Breakfast!
 
