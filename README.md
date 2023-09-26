@@ -1,4 +1,5 @@
-[![Test and Build Images](https://github.com/evryn/breakfast/actions/workflows/build.yaml/badge.svg)](https://github.com/evryn/breakfast/actions/workflows/build.yaml) [![Docker Hub](https://img.shields.io/badge/Total%20Versions-18-blue?logo=docker)](https://hub.docker.com/r/evryn/breakfast)
+[![Test and Build Images](https://github.com/evryn/breakfast/actions/workflows/build.yaml/badge.svg)](https://github.com/evryn/breakfast/actions/workflows/build.yaml) [![Docker Hub](https://img.shields.io/badge/Total%20Versions-18-blue?logo=docker)](https://hub.docker.com/r/evryn/breakfast) [![Docker Hub](https://img.shields.io/docker/pulls/evryn/breakfast?logo=docker&label=Docker%20Pulls)](https://hub.docker.com/r/evryn/breakfast)
+
 
 <p align="center">
 <img src="docs/banner.png" alt="Watch the video" width="600"/>
