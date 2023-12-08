@@ -14,7 +14,7 @@ FROM builder as test
 RUN go test ./...
 
 # A layer with final executable
-FROM alpine:3.18
+FROM alpine:3.19
 
 RUN apk --no-cache add ca-certificates \
  && adduser -S -u 1000 -s /bin/bash -h /home/breakfast breakfast
